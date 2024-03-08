@@ -1,11 +1,10 @@
+const { maxHeaderSize } = require("http");
 const readline = require("readline");
 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
-
-let secretNumber = 7;
 
 function checkGuess(num) {
   if (num > secretNumber) {
@@ -19,9 +18,29 @@ function checkGuess(num) {
     return true;
   }
 }
+
+let secretNumber;
+
+const randomInRange = (min, max) => {
+  const minCeiled = Math.ceil(min);
+  const maxFloored = Math.floor(max);
+  return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled);
+};
+
+const askRange = () => {
+  rl.question("Enter a max number: ", (maxAnswer) => {
+    rl.question("Enter a min number: ", (minAnswer) => {
+      console.log(
+        `I'm thinking of a number between ${minAnswer} and ${maxAnswer}...`
+      );
+      secretNumber = randomInRange(minAnswer, maxAnswer);
+      askGuess();
+    });
+  });
+};
+
 const askGuess = () => {
   rl.question("Enter a guess: ", (input) => {
-    console.log(input);
     if (checkGuess(Number(input))) {
       rl.close();
     } else {
@@ -30,4 +49,4 @@ const askGuess = () => {
   });
 };
 
-askGuess();
+askRange();
