@@ -75,6 +75,6 @@ Enter a min number: _11_
 I'm thinking of a number between 11 and 20...
 ```
 
-Once your function is able to properly take the min and max from your user, it's time to put it all together! When the user enters both the min and the max, call your randomInRange function with that min and max as arguments. Recall that the user's input is automatically interpreted as strings and not numbers. You should explicitly turn the min and max to actual numbers before passing them in. Take the random number returned from your function and set that as the secretNumber. Then call your old askGuess method so that gameplay can begin. All of this should happen within the askRange function. We design it this way because we only want to ask for a guess after the random number has been chosen.
+When the user enters both the min and the max, call your randomInRange function with that min and max as arguments. Recall that the user's input is automatically interpreted as strings and not numbers. You should explicitly turn the min and max to actual numbers before passing them in. Take the random number returned from your function and set that as the secretNumber. Then call your old askGuess method so that gameplay can begin. All of this should happen within the askRange function. We design it this way because we only want to ask for a guess after the random number has been chosen.
 
 The askRange function is the "main" function that will begin our game, so you'll need call it once in the global scope. Run your program and play a few games!
