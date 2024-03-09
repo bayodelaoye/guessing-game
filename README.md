@@ -27,8 +27,6 @@ Define a function named checkGuess that accepts a number as an argument. It shou
 * when the argument is equal to secretNumber, it should print 'Correct!' and return true
 
 ### askGuess
-Since we will be taking user input during gameplay, we'll need to do some standard setup for Node's readline module. Reference the readline docs to create an interface for input and output that we will use. To stay organized, we recommend that you import the module and create the interface at the tippy top of your file.
-
 Define a function named askGuess. The method should use the readline module's question method to ask the user to 'Enter a guess: '. If you need a refresher on how to use this method, check out the question docs. Once the user enters their number, the checkGuess function should be called with their number as an argument and the interface should be closed.
 
 When accepting user input, there is a very important nuance to take into account. When the user enters their guess it will be interpreted as a string of numeric characters and not an actual number type! Depending on how you wrote your checkGuess function, this could be disastrous because:
